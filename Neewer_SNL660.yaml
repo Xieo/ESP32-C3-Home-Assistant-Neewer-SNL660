@@ -1,0 +1,69 @@
+esphome:
+  name: neewer-snl660-controller
+  friendly_name: Neewer SNL660 ESP32 C3
+
+esp32:
+  board: esp32-c3-devkitm-1
+  framework:
+    type: esp-idf
+
+logger:
+  level: DEBUG
+
+api:
+  encryption:
+    key: "ADD YOUR ENCRYPTION KEY HERE OR REMOVE THIS LINE"
+
+ota:
+  - platform: esphome
+    password: "ADD ESPHOME PASSWORD HERE OR REMOVE THIS LINE"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
+    ssid: "SNL660 Fallback"
+    password: "12345678"
+
+captive_portal:
+
+external_components:
+  - source:
+      type: local
+      path: ./my_components
+    components: [neewer_snl660]
+
+esp32_ble_tracker:
+  scan_parameters:
+    active: true
+    interval: 1100ms
+    window: 1100ms
+
+ble_client:
+  - id: snl660_ble
+    mac_address: "ADD_YOUR_NEEWER_SNL660_LIGHT_MAC_HERE"
+    on_connect:
+      then:
+        - binary_sensor.template.publish:
+            id: snl660_connected
+            state: ON
+        - logger.log: "SNL660 BLE CONNECTED"
+    on_disconnect:
+      then:
+        - binary_sensor.template.publish:
+            id: snl660_connected
+            state: OFF
+        - logger.log: "SNL660 BLE DISCONNECTED"
+
+binary_sensor:
+  - platform: template
+    id: snl660_connected
+    name: "SNL660 Connected"
+    device_class: connectivity
+
+light:
+  - platform: neewer_snl660
+    id: snl660_light
+    name: "Neewer SNL660"
+    ble_client_id: snl660_ble
+    restore_mode: RESTORE_DEFAULT_OFF

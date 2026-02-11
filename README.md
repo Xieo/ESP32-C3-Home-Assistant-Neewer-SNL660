@@ -1,6 +1,8 @@
 # ESP32-C3-Home-Assistant-Neewer-SNL660
 Control Your Neewer SNL660 From Home Assistant via ESPHome
-
+[For Neewer RGB1200 Go Here](https://github.com/Xieo/ESP32-C3-Home-Assistant-Neewer-RGB-1200)
+  
+  Feel free to add you comments or updates but let me know :)
 
 
 <img width="266" height="323" alt="image" src="https://github.com/user-attachments/assets/341e92a8-ba95-4932-b5f8-43f66bf1fb4d" />

@@ -3,8 +3,8 @@ Control Your Neewer SNL660 From Home Assistant via ESPHome
 
 
 
-<img width="355" height="430" alt="image" src="https://github.com/user-attachments/assets/341e92a8-ba95-4932-b5f8-43f66bf1fb4d" />
-<img width="355" height="430" alt="image" src="https://github.com/user-attachments/assets/420bd5ee-5149-4468-8ed0-c30b12825cc4" />
+<img width="266" height="323" alt="image" src="https://github.com/user-attachments/assets/341e92a8-ba95-4932-b5f8-43f66bf1fb4d" />
+<img width="266" height="323" alt="image" src="https://github.com/user-attachments/assets/420bd5ee-5149-4468-8ed0-c30b12825cc4" />
 
 
 **Please Note the below items require you to change it manually:
